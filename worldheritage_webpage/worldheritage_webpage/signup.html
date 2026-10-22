@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>新規登録 | IDM世界遺産部</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="auth.css?v=2">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" defer></script>
+    <script src="supabase-config.js" defer></script>
+    <script src="auth.js?v=2" defer></script>
+</head>
+<body>
+    <header class="auth-header">
+        <a class="logo" href="main.html"><span class="logo-mark">🌍</span>IDM世界遺産部</a>
+    </header>
+
+    <main class="auth-main">
+        <section class="auth-card">
+            <span class="frame frame-tl"></span><span class="frame frame-br"></span>
+            <p class="eyebrow">Sign up</p>
+            <h1>新規登録</h1>
+            <p class="lead">アカウントを作成すると、次回からログインできるようになります。</p>
+
+            <div id="message" class="message" role="alert" hidden></div>
+
+            <form id="signup-form" novalidate>
+                <label for="username">ユーザー名 <small>（2〜20文字）</small></label>
+                <input id="username" name="username" type="text" autocomplete="nickname" maxlength="20" placeholder="花子" required>
+
+                <label for="email">メールアドレス</label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="example@mail.com" required>
+
+                <label for="password">パスワード <small>（8文字以上）</small></label>
+                <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required>
+
+                <label for="confirm">パスワード（確認用）</label>
+                <input id="confirm" name="confirm" type="password" autocomplete="new-password" required>
+
+                <button type="submit">登録する</button>
+            </form>
+
+            <p class="switch">すでにアカウントをお持ちの方は <a href="login.html">ログインはこちら</a></p>
+        </section>
+    </main>
+</body>
+</html>

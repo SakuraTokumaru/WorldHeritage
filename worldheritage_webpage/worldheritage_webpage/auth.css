@@ -1,0 +1,182 @@
+/* ログイン・新規登録ページ（トップページの配色に合わせる） */
+:root {
+    --navy: #2c4870;
+    --blue: #4a8ccb;
+    --heading: #3a7fbf;
+    --paper: #f3eade;
+    --card: #fbf7f1;
+    --ink: #3b3b3b;
+    --muted: #6f6a63;
+    --line: #d8cebf;
+    --error: #a5342a;
+    --success: #2f6b4f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-header {
+    background: var(--navy);
+    padding: 14px 24px;
+    border-bottom: 6px solid var(--blue);
+}
+
+.logo {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-mark { font-size: 28px; line-height: 1; }
+
+.auth-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 16px;
+}
+
+.auth-card {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 44px 40px 36px;
+}
+
+/* 「世界遺産とは？」と同じ二重線の角飾り */
+.frame {
+    position: absolute;
+    width: 72px;
+    height: 72px;
+    pointer-events: none;
+}
+.frame::before, .frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-color: var(--navy);
+    border-style: solid;
+}
+.frame-tl { top: -12px; left: -12px; }
+.frame-tl::before { border-width: 2px 0 0 2px; }
+.frame-tl::after { inset: 6px -6px -6px 6px; border-width: 1px 0 0 1px; border-color: var(--blue); }
+.frame-br { bottom: -12px; right: -12px; }
+.frame-br::before { border-width: 0 2px 2px 0; }
+.frame-br::after { inset: -6px 6px 6px -6px; border-width: 0 1px 1px 0; border-color: var(--blue); }
+
+.eyebrow {
+    margin: 0;
+    color: var(--heading);
+    font-size: 14px;
+    letter-spacing: 0.12em;
+}
+
+h1 {
+    margin: 4px 0 10px;
+    color: var(--heading);
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.lead {
+    margin: 0 0 24px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+form { display: flex; flex-direction: column; }
+
+label {
+    font-size: 13px;
+    margin: 14px 0 6px;
+}
+label small { color: var(--muted); }
+
+input {
+    font: inherit;
+    font-size: 15px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    background: #fff;
+    color: var(--ink);
+}
+input:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(74, 140, 203, 0.18);
+}
+
+button[type=submit] {
+    margin-top: 28px;
+    padding: 12px;
+    font: inherit;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    color: #fff;
+    background: var(--navy);
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button[type=submit]:hover:not(:disabled) { background: var(--blue); }
+button[type=submit]:disabled { opacity: 0.55; cursor: default; }
+
+.message {
+    font-size: 13px;
+    line-height: 1.7;
+    padding: 10px 12px;
+    border-left: 3px solid;
+    margin-bottom: 4px;
+}
+.message.error { color: var(--error); border-color: var(--error); background: rgba(165, 52, 42, 0.06); }
+.message.success { color: var(--success); border-color: var(--success); background: rgba(47, 107, 79, 0.07); }
+
+.switch {
+    margin: 24px 0 0;
+    font-size: 13px;
+    text-align: center;
+    color: var(--muted);
+}
+.switch a { color: var(--heading); }
+
+@media (max-width: 480px) {
+    .auth-card { padding: 36px 24px 28px; }
+}
+
+/* ログイン中表示 */
+.logged-in-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+.btn-primary, .btn-secondary {
+    display: block;
+    padding: 12px;
+    font: inherit;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.btn-primary { color: #fff; background: var(--navy); border: none; letter-spacing: 0.1em; }
+.btn-primary:hover { background: var(--blue); }
+.btn-secondary { color: var(--navy); background: none; border: 1px solid var(--line); font-size: 13px; }
+.btn-secondary:hover { border-color: var(--blue); }
+
+[hidden] { display: none !important; }

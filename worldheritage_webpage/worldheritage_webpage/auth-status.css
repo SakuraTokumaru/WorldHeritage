@@ -1,0 +1,13 @@
+/* トップページのヘッダーに置くログイン状態（#auth-status） */
+#auth-status { display: inline-flex; align-items: center; gap: 12px; font-size: 14px; }
+.auth-user { color: #fff; }
+.auth-link {
+    color: #fff;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 4px 12px;
+    font: inherit;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+}
